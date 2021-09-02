@@ -325,17 +325,16 @@ body {
     
     #right-nav {
     float:right;
-    width:800px;
+    width:600px;
     background-color:#ffffff;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+  
     border-radius: 5px;
-    border:3px solid #CCCCCC;
+    
     margin-top:10px;
     }
     
     .post-text {
-    width:99%;
+    width:50%;
     height:150px;
     border:3px solid #73cfff;
     -webkit-border-radius: 5px;
@@ -386,13 +385,10 @@ body {
     
     #right-nav1 {
     margin-top: 10px;
-    width: 65.5%;
+    width: 10%;
     background-color:#ffffff;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border:3px solid #CCCCCC;
-    height: auto;
+    
+    height: 50%;
     
     padding: 7px;
     }
@@ -424,19 +420,19 @@ body {
     }
     
     .post-content {
-    width:100%;
-    border:2px solid #CCCCCC;
+    width:10%;
+    border:2px hidden #CCCCCC;
     }
     
     .post-content p {
-    text-indent:10px;
+    text-indent:5px;
     font-size:23px;
     }
     
     .post-content img {
-    border:3px solid #CCCCCC;
-    width:50%;
-    height:50%;
+    border:3px  #CCCCCC;
+    width:5%;
+    height:5%;
     }
     
     .delete-post {
@@ -702,7 +698,7 @@ text-shadow:2px 2px 2px #000000;
 
 #right-nav {
 float:right;
-width:800px;
+width:500px;
 background-color:#ffffff;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
@@ -756,19 +752,15 @@ border-radius:100px;
 }
 
 .btn-share:hover {
-color:#ffffff;
+color:powderblue;
 background-color:#0488cd;
 border:2px solid #0488cd;
 }
 
 #right-nav1 {
 margin-top: 10px;
-width: 65.5%;
+width: 100%;
 background-color:#ffffff;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-border-radius: 5px;
-border:3px solid #CCCCCC;
 height: auto;
 float: right;
 padding: 7px;
