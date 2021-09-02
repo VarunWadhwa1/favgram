@@ -4,7 +4,8 @@
         <div class="container">
             <!-- Codrops top bar -->
             <div class="codrops-top">
-                <div class="clr"><div class="title">Flappy Book</div></div>
+                <h1>FAVGRAM</h1>
+                <div class="clr"><div class="title">FAVGRAM</div></div>
             </div><!--/ Codrops top bar -->
             <section>				
 			

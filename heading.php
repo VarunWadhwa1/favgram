@@ -19,12 +19,42 @@
 			<p>Address:<?php echo $row['address']; ?></p>
 			<hr>
 		</div>
-      <div class="col-md-5">
-			<form method="post" action="post.php">
-						<textarea name="content" placeholder="Share your Story Here"></textarea>
-						<br>
-						<hr>
-						<button class="btn btn-success"><i class="icon-share"></i> Share </button>
+      <div class="col-md-5"> 	<div id="right-nav">
+			<h3>Update Status</h3>
+	<div>
+			<form method="post" action="post.php" enctype="multipart/form-data">
+				<textarea placeholder="Whats on your mind?" name="content" class="post-text" required></textarea>
+				<input type="file" name="image">
+				<button class="btn-share" name="Submit" value="Log out">Share</button>
+<style> .btn-add-photo:hover {
+    color:#ffffff;
+    background-color:#0488cd;
+    border:2px solid #0488cd;
+    }
+    
+    .btn-share {
+    color:#ffffff;
+    font-size:19px;
+    float:right;
+    width:100px;
+    line-height:30px;
+    background-color:#0bacff;
+    border:2px solid #0bacff;
+    border-radius:100px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    -o-border-radius:100px;
+    }
+    
+    .btn-share:hover {
+    color:#ffffff;
+    background-color:#0488cd;
+    border:2px solid #0488cd;
+    }
+    </style>
 			</form>
+	</div>
+	
+		</div>
       </div>
     </div> 
