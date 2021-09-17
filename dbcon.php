@@ -1,1 +1,1 @@
-<?php $conn = new PDO('mysql:host=remotemysql.com;dbname=gBF41UOiBE', 'gBF41UOiBE', '2dmlC3EDWU'); ?>
+<?php $conn = new PDO('sql6.freesqldatabase.com;dbname=sql6437874', 'sql6437874', '8fCf41ntll'); ?>
