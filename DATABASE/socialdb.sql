@@ -77,7 +77,27 @@ INSERT INTO `members` (`member_id`, `firstname`, `lastname`, `middlename`, `addr
 (10, 'Harry', 'Den', '', 'espn', '', '', 0, 'Male', 'harry', 'pass', 'images/male6.jpg', '12 Jan-1995', '7542220011', 'Single', 'developer', 'Buddhist');
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `comments`
+--
 
+CREATE TABLE IF NOT EXISTS `comments` (
+  `comment_id` int(100) NOT NULL AUTO_INCREMENT,
+  `post_id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `content_comment` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `created` varchar(100) NOT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `name`, `content_comment`, `image`, `created`) VALUES
+(3, '5', '2', 'Mark Anthony Monaya', 'cute ah', 'upload/6.jpg', '')
 --
 -- Table structure for table `message`
 --
@@ -144,6 +164,7 @@ INSERT INTO `photos` (`photos_id`, `location`, `member_id`) VALUES
 CREATE TABLE IF NOT EXISTS `post` (
 `post_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
+  `post_image` varchar(100) NOT NULL,
   `content` varchar(1000) NOT NULL,
   `date_posted` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -152,10 +173,10 @@ CREATE TABLE IF NOT EXISTS `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`post_id`, `member_id`, `content`, `date_posted`) VALUES
-(2, 1, 'test', '2014-06-20 21:55:52'),
-(3, 1, 'demo', '2019-02-27 18:07:13'),
-(4, 10, 'hello world', '2019-03-16 22:26:11');
+INSERT INTO `post` (`post_id`, `member_id`,`post_image`, `content`, `date_posted`) VALUES
+(2, 1, '','test', '2014-06-20 21:55:52'),
+(3, 1,'', 'demo', '2019-02-27 18:07:13'),
+(4, 10, '','hello world', '2019-03-16 22:26:11');
 
 -- --------------------------------------------------------
 

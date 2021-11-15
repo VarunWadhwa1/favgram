@@ -23,8 +23,8 @@
           <div class="row">    
             <br>
 				<?php
-	$query = $conn->query("select * from post LEFT JOIN user on user.user_id = post.user_id order by post_id DESC");
-	while($row = $query->fetch()){
+	$query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
+	while($row = $query->fetch(PDO::FETCH_ASSOC)){
 	$posted_by = $row['firstname']." ".$row['lastname'];
 	$id = $row['post_id'];
 	?>

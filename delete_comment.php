@@ -1,11 +1,8 @@
 <?php
+	include('dbcon.php');
 
-include('dbcon.php');
-
-$get_id =$_GET['id'];
-	
-	// sending query
-	mysqli_query($conn,"DELETE FROM comments WHERE comment_id = '$get_id'");
+	$get_id =  $_GET['cid'];
+	$conn ->query("DELETE FROM comments WHERE comment_id = '$get_id'");
 	header("Location: home.php");
 
 ?>
