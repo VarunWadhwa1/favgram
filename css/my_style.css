@@ -15,7 +15,7 @@ body{
     padding: 16px;
 }
 .col-md-10 > p {
-    color: maroon;
+    color: white;
 }
 .alert{
 	border:1px solid;
