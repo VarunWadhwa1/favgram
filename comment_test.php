@@ -12,7 +12,7 @@
 		?>		
 		<div class="comment-display"<?php echo $comment_id ?>>
 			<div class="delete-post">
-				<a href="delete_comment.php <?php echo '?cid='.$comment_id; ?>" title="Delete your comment"><button class="btn-delete">X</button></a>
+				<a href="delete_comment.php<?php echo '?cid='.$comment_id; ?>" title="Delete your comment"><button class="btn-delete">X</button></a>
 			</div>
 			<div class="user-comment-name">
 				<img src="<?php echo $row['image']; ?>">
