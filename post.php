@@ -19,8 +19,8 @@
 		}
 		else
 		{
-			move_uploaded_file($_FILES["image"]["tmp_name"],"https://api.imgur.com/3/upload/" . $_FILES["image"]["name"]);			
-			$location="https://api.imgur.com/3/upload/" . $_FILES["image"]["name"];
+			move_uploaded_file($_FILES["image"]["tmp_name"],"upload/" . $_FILES["image"]["name"]);			
+			$location="upload/" . $_FILES["image"]["name"];
 			$user=$_SESSION['id'];
 			$content=$_POST['content'];
 			$time=time();
