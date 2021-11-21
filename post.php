@@ -1,31 +1,58 @@
 <?php
 	include('dbcon.php');
 	include('session.php');
-	$content = $_POST['content'];
-	if (!isset($_FILES['image']['tmp_name']))
-	{
-		echo "";$location = "";
+	if(isset($_POST["Submit"])){
+		$content = $_POST['content'];
 	}
-	else
-	{
-		$file=$_FILES['image']['tmp_name'];
-		$image = $_FILES["image"] ["name"];
-		$image_name= addslashes($_FILES['image']['name']);
-		$size = $_FILES["image"] ["size"];
-		$error = $_FILES["image"] ["error"];
-		if($size == 0 && $error > 0) //conditions for the file
-		{
-			$location = "";
-		}
-		else
-		{
-			move_uploaded_file($_FILES["image"]["tmp_name"],"upload/" . $_FILES["image"]["name"]);			
-			$location="upload/" . $_FILES["image"]["name"];
-			$user=$_SESSION['id'];
-			$content=$_POST['content'];
-			$time=time();
-		}
+    $img = $_FILES['image'];
+    if(isset($_POST['Submit'])||isset($_POST['p_submit'])||isset($_POST['i_submit'])){ 
+        if(!isset($img)){  
+            echo "Hello";
+        }else{
+            $filename = $img['tmp_name'];
+            $client_id="bc22ac7cb378102";
+            $handle = fopen($filename, "r");
+            $data = fread($handle, filesize($filename));
+            $pvars   = array('image' => base64_encode($data));
+            $timeout = 30;
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
+            curl_setopt($curl, CURLOPT_TIMEOUT, $timeout);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Client-ID ' . $client_id));
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $pvars);
+            $out = curl_exec($curl);
+            curl_close ($curl);
+            $pms = json_decode($out,true);
+            $url = $pms['data']['link'];
+            if($url!=""){
+            //echo "<h2>Uploaded Without Any Problem</h2>";
+            echo "<img src='$url'/>";
+            }else{
+                //echo "<h2>There's a Problem</h2>";
+                echo $pms['data']['error'];  
+            } 
+        }
+    }
+	else{
+		echo "Bruh!!!!!!!";
 	}
-	$conn->query("insert into post (post_image,content,date_posted,member_id) values('$location','$content',NOW(),'$session_id')");
-	header('location:home.php');
+	if(isset($_POST["Submit"]))
+	{
+		$conn->query("insert into post (post_image,content,date_posted,member_id) values('$url','$content',NOW(),'$session_id')");
+		header('location:home.php');
+	}
+	elseif(isset($_POST["p_submit"]))
+	{	
+		$conn->query("update members set image = '$url' where member_id  = '$session_id' ");
+		header('location:profile.php');
+	}
+	elseif(isset($_POST["i_submit"]))
+	{	
+		$conn->query("insert into photos (location,member_id) values ('$url','$session_id')");
+		header('location:photos.php');
+	}
+	
 ?>

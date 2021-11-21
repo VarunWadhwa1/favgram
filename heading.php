@@ -22,9 +22,9 @@
       <div class="col-md-5"> 	<div id="right-nav">
 			<h3>Update Status</h3>
 	<div>
-			<form method="post" action="post.php" enctype="multipart/form-data">
+			<form action="post.php" enctype="multipart/form-data" method="POST">
 				<textarea placeholder="Whats on your mind?" name="content" class="post-text" required></textarea>
-				<input type="file" name="image">
+				<input type="file" size="5"  name="image">
 				<button class="btn-share" name="Submit" value="Log out">Share</button>
 <style> .btn-add-photo:hover {
     color:#ffffff;
