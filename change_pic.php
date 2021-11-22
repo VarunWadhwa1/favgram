@@ -23,11 +23,12 @@
           <div class="row">    
             <br>
 				<?php
-	$query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
-	while($row = $query->fetch(PDO::FETCH_ASSOC)){
-	$posted_by = $row['firstname']." ".$row['lastname'];
-	$id = $row['post_id'];
-	?>
+          $query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
+          while($row = $query->fetch(PDO::FETCH_ASSOC)){
+          $posted_by = $row['firstname']." ".$row['lastname'];
+          $id = $row['post_id'];
+          $member_id = $row['member_id'];
+          ?>
             <div class="col-md-2 col-sm-3 text-center">
             </div>
             <div class="col-md-10 col-sm-9">
@@ -37,7 +38,11 @@
                   <h4>
                   <small style="font-family:courier,'new courier';" class="text-muted">Recent post:<a href="#" class="text-muted"><?php echo $posted_by; ?></a></small>
                   </h4></div>
+                  <?php
+                    if($session_id == $member_id)
+                    { ?>
                 <div class="col-xs-3"><a href="delete_post.php<?php echo '?id='.$id; ?>" class="btn btn-danger"><i class="icon-trash"></i> Delete</a></div>
+                <?php } ?>
               </div>
               <br><br>
             </div>

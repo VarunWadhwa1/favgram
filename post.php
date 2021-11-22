@@ -5,9 +5,13 @@
 		$content = $_POST['content'];
 	}
     $img = $_FILES['image'];
-    if(isset($_POST['Submit'])||isset($_POST['p_submit'])||isset($_POST['i_submit'])){ 
-        if(!isset($img)){  
+    $error = $_FILES["image"] ["error"];
+    print_r($img);
+    if(isset($_POST['Submit'])||isset($_POST['p_submit'])||isset($_POST['i_submit']))
+    { 
+        if(!isset($img) || $error > 0){  
             echo "Hello";
+            $url = "";
         }else{
             $filename = $img['tmp_name'];
             $client_id="bc22ac7cb378102";
@@ -32,6 +36,7 @@
             echo "<img src='$url'/>";
             }else{
                 //echo "<h2>There's a Problem</h2>";
+                
                 echo $pms['data']['error'];  
             } 
         }
