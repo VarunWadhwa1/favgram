@@ -4,90 +4,96 @@
 ?>    
 <html>
   <body>
- 	<?php include('navbar.php'); ?>
+    <?php include('navbar.php'); ?>
 	<div id="masthead">  
 		<div class="container">
-		<?php include('heading.php'); ?>
-		<div class="row">
-            		<div class="col-md-12"> 
-            			<div class="top-spacer"> </div>
-              				<div class="panel">
-                				<div class="panel-body">
-							<div class="row"><br>
-							<?php
-								$query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
-								while($row = $query->fetch(PDO::FETCH_ASSOC) )
-								{
-								$posted_by = $row['firstname']." ".$row['lastname'];
-								$id = $row['post_id'];
-							?>
-							<?php
-								$id = $_SESSION['id'];
-								include("dbcon.php");
-								$query=$conn->query("SELECT * from users where user_id='$id' order by user_id DESC");
-								while($row = $query->fetch(PDO::FETCH_ASSOC))
-								{
-									$id = $row['user_id'];
-								}
-							?>		
-							<?php	}	?>
-							<?php
-								include("dbcon.php");
-								$query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
-								while($row = $query->fetch(PDO::FETCH_ASSOC))
-								{
-									$posted_by = $row['firstname']." ".$row['lastname'];
-									$location = $row['post_image'];
-									$profile_picture = $row['image'];
-									$content=$row['content']; 
-									$post_id = $row['post_id'];
-									$time=$row['date_posted'];
-									$member_id = $row['member_id'];
-							?>
-							<div id="right-nav1">
-								<div class="profile-pics">
-									<img src="<?php echo $profile_picture ?>">
-									<b><?php echo $posted_by ?></b>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $time; ?>
-								</div><br />
-								<div class="post-content">
-									<div class="delete-post">
-										<?php 
-										if($session_id == $member_id)
-										{ ?>
-										<a href="delete_post.php<?php echo '?id='.$post_id; ?>" title="Delete your post">
-										<button class="btn-delete">X</button></a>
-										<?php } ?>
-									</div>
-									<p><?php echo $row['content']; ?></p>
-									<center><img src="<?php echo $location ?>"></center>
-									<?php include('comment_test.php'); ?>
-									<form  method="POST" action="comment.php">			
-										<div class="comment-area">
-
-											<?php   $image=$conn->query("select * from members where member_id='$session_id'");
-												while($row = $image->fetch()){
-
-											?>
-											<img src="<?php echo $row['image']; ?>" width="30" height="30">
-
-											<input type="text" name="content_comment" placeholder="Write a comment..." class="comment-text">
-											<input type="hidden" name="post_id" value="<?php echo $post_id ?>">
-											<input type="hidden" name="user_id" value="<?php echo $row['firstname']." ".$row['lastname']  ?>">
-											<input type="hidden" name="image" value="<?php echo $row['image']  ?>">
-											<input type="submit" name="post_comment" value="Enter" class="btn-comment">
-											<?php } ?>
+			<?php include('heading.php'); ?>
+			<div class="row">
+            	<div class="col-md-12"> 
+            		<div class="top-spacer"> </div>
+              			<div class="panel">
+                			<div class="panel-body">
+                  				<div class="row"><br>
+									<?php
+										$query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
+										while($row = $query->fetch(PDO::FETCH_ASSOC) )
+										{
+										$posted_by = $row['firstname']." ".$row['lastname'];
+										$id = $row['post_id'];
+									?>
+									<?php
+										$id = $_SESSION['id'];
+										include("dbcon.php");
+										$query=$conn->query("SELECT * from users where user_id='$id' order by user_id DESC");
+										while($row = $query->fetch(PDO::FETCH_ASSOC))
+										{
+											$id = $row['user_id'];
+										}
+									?>		
+									<?php	}	?>
+									<?php
+										include("dbcon.php");
+										$query = $conn->query("SELECT * from post LEFT JOIN members on post.member_id = members.member_id order by post_id DESC");
+										while($row = $query->fetch(PDO::FETCH_ASSOC))
+										{
+											$posted_by = $row['firstname']." ".$row['lastname'];
+											$location = $row['post_image'];
+											$profile_picture = $row['image'];
+											$content=$row['content']; 
+											$post_id = $row['post_id'];
+											$time=$row['date_posted'];
+											$member_id = $row['member_id'];
+									?>
+									<div id="right-nav1">
+										<div class="profile-pics">
+											<img src="<?php echo $profile_picture ?>">
+											<b><?php echo $posted_by ?></b>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $time; ?>
+										</div><br />
+										<div class="post-content">
+											<div class="delete-post">
+												<?php 
+													if($session_id == $member_id)
+													{ ?>
+													<a href="delete_post.php<?php echo '?id='.$post_id; ?>" title="Delete your post">
+													<button class="btn-delete">X</button></a>
+													<?php } ?>
 										</div>
-									</form>
-								</div><br />  <?php   }   ?>
-							</div>
-						</div><hr>
-					</div>
-				</div>                                                    
+										<p><?php echo $row['content'] ."<br><br>"; ?></p>
+										<?php 
+											if(!empty($location))
+											{
+										?>
+										<center><img src="<?php echo $location ?>"></center>
+										<?php } ?>
+										
+										<?php include('comment_test.php'); ?>
+										<form  method="POST" action="comment.php">			
+											<div class="comment-area">
+						
+												<?php   $image=$conn->query("select * from members where member_id='$session_id'");
+													while($row = $image->fetch()){
+													
+												?>
+												<img src="<?php echo $row['image']; ?>" width="30" height="30">
+												
+												<input type="text" name="content_comment" placeholder="Write a comment..." class="comment-text">
+												<input type="hidden" name="post_id" value="<?php echo $post_id ?>">
+												<input type="hidden" name="user_id" value="<?php echo $row['firstname']." ".$row['lastname']  ?>">
+												<input type="hidden" name="image" value="<?php echo $row['image']  ?>">
+												<input type="submit" name="post_comment" value="Enter" class="btn-comment">
+												<?php } ?>
+											</div>
+										</form>
+									</div><br />  <?php   }   ?>
+								</div>
+							</div><hr>
+						</div>
+					</div>                                                    
+				</div>
 			</div>
 		</div>
-	</div>
-
+                                                
       <style>
       body {
 background-image: url('../image/b.png');
