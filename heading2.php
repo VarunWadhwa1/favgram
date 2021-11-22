@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-2"><hr>
-		<center><img class="pp" src="<?php echo $image; ?>" height="140" width="160"></center><hr>
+		<center><img class="pp" src="<?php echo $image; ?>"></center><hr>
 		<a class="btn btn-success" href="change_pic.php">Change Profile Picture</a>
 	</div>
 	<div class="col-md-5"><hr>
@@ -29,4 +29,13 @@
 			</div>
 		</form>
 	</div>
-</div> 
+</div>
+<style>
+   .pp{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+</style>

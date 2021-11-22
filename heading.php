@@ -1,7 +1,7 @@
     <div class="row">
       <div class="col-md-2">
 		<hr>
-		<center><img class="pp" src="<?php echo $image; ?>" height="140" width="160"></center>
+		<center><img class="pp" src="<?php echo $image; ?>"></center>
 		<hr>
 		<a class="btn btn-success" href="change_pic.php">Change Profile Picture</a>
       </div>
@@ -26,7 +26,15 @@
 				<textarea placeholder="Whats on your mind?" name="content" class="post-text" required></textarea>
 				<input type="file" size="5"  name="image">
 				<button class="btn-share" name="Submit" value="Log out">Share</button>
-<style> .btn-add-photo:hover {
+<style>
+   .pp{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+ .btn-add-photo:hover {
     color:#ffffff;
     background-color:#0488cd;
     border:2px solid #0488cd;

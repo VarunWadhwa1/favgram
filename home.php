@@ -46,7 +46,7 @@
 									?>
 									<div id="right-nav1">
 										<div class="profile-pics">
-											<img src="<?php echo $profile_picture ?>">
+											<img class ="show1" src="<?php echo $profile_picture ?>">
 											<b><?php echo $posted_by ?></b>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $time; ?>
 										</div><br />
@@ -75,7 +75,7 @@
 													while($row = $image->fetch()){
 													
 												?>
-												<img src="<?php echo $row['image']; ?>" width="30" height="30">
+												<img class ="show1" src="<?php echo $row['image']; ?>" width="30px" height="30px">
 												
 												<input type="text" name="content_comment" placeholder="Write a comment..." class="comment-text">
 												<input type="hidden" name="post_id" value="<?php echo $post_id ?>">
@@ -331,7 +331,12 @@ color:#000000;
 margin-left:10px;
 font-size:20px;
 }
-
+.show1{
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+}
 .post-content {
 width:100%;
 border:2px solid #CCCCCC;
@@ -383,19 +388,21 @@ border-radius:5px;
 
 .comment-area {
 width:70%;
-background-color:#ffffff;
-border:1px solid #0bacff;
-padding:3px;
-margin-top:10px;
-border-radius:5px;
--webkit-border-radius:5px;
--moz-border-radius:5px;
--o-border-radius:5px;
+	background-color:#ffffff;
+	border:1px solid #0bacff;
+	padding:3px;
+	margin-top:10px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
 }
 
 .comment-area img {
-width:10%;
-height:10%;
+	display: inline-block;
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
 }
 
 .user-comment-name {
