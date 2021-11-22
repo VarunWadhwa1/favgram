@@ -15,7 +15,7 @@ body{
     padding: 16px;
 }
 .col-md-10 > p {
-    color: white;
+    color: maroon;
 }
 .alert{
 	border:1px solid;
@@ -48,7 +48,7 @@ body{
     width: 148px;
 }
 .col-md-5 > p {
-    color: white !important;
+    color: black !important;
 }
 .top-spacer {
     margin-top: 26px;
@@ -230,6 +230,7 @@ a,a:hover {
   overflow:hidden;
   height:90px;
 }
+
 .label-float{
   margin:0 auto;
   position: absolute;
@@ -240,6 +241,7 @@ a,a:hover {
   padding:6px;
   color:#fff;
 }
+    
 .btn-twitter {background-color:#4099FF;color:#fff;}
 .btn-facebook {background-color:#3B5998;color:#fff;}
 .btn-google-plus {background-color:#d34836;color:#fff;}
@@ -247,3 +249,4 @@ a,a:hover {
 .btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
 .btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
 .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+
