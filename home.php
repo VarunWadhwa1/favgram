@@ -323,9 +323,9 @@
 	height:50%;
 }
 .delete-post {
-float:right;
-margin-right:5px;
-margin-top:5px;
+	float:right;
+	margin-right:5px;
+	margin-top:5px;
 }
 .btn-delete {
 	color:#ffffff;
@@ -431,7 +431,8 @@ margin-top:5px;
 	-moz-border-radius:5px;
 	-o-border-radius:5px;
 }
-	</style> 
-	<script id="BotPenguin-messenger-widget" src="https://cdn.botpenguin.com/botpenguin.js" defer>619d0dcbef2aaa0967e11417,619d0c9100bf93097fe1caed</script>
+	</style>                                                                          
+	<script id="BotPenguin-messenger-widget" src="https://cdn.botpenguin.com/botpenguin.js" defer>
+	619d0dcbef2aaa0967e11417,619d0c9100bf93097fe1caed</script>
     </body>
 </html>
