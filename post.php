@@ -52,6 +52,7 @@
 	elseif(isset($_POST["p_submit"]))
 	{	
 		$conn->query("update members set image = '$url' where member_id  = '$session_id' ");
+		$conn->query("update comments set image = '$url' where user_id  = '$session_id' ");
 		header('location:profile.php');
 	}
 	elseif(isset($_POST["i_submit"]))
