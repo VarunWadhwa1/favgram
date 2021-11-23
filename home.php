@@ -431,15 +431,7 @@ margin-top:5px;
 	-moz-border-radius:5px;
 	-o-border-radius:5px;
 }
-	</style>                                                                          
-	<script type="text/javascript">
-		window.__be = window.__be || {};
-		window.__be.id = "619cf6dcc8b56e00076866d7";
-		(function() {
-			var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
-			be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
-   		 })();
-	</script>
+	</style> 
+	<script id="BotPenguin-messenger-widget" src="https://cdn.botpenguin.com/botpenguin.js" defer>619d0dcbef2aaa0967e11417,619d0c9100bf93097fe1caed</script>
     </body>
 </html>
